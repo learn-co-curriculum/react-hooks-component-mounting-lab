@@ -12,7 +12,7 @@ class App extends Component {
 
 
   //Your code here:
-
+  //
   componentDidMount() {
     console.log(" ");
     console.log("App component mounted");
@@ -28,14 +28,12 @@ class App extends Component {
 
 
 
-
-
   // No need to modify anything in render or the class methods below
   // Unless, of course, you're curious about how it all works
   render() {
 
     return (
-      <div classNae="App">
+      <div className="App">
         <h1>Quote Wall</h1>
         <button onClick={this.handleClick}>Add Quote</button>
 

@@ -9,27 +9,23 @@ class Card extends Component {
     }
   }
 
-  componentDidMount() {
-    console.log('a card was mounted');
-    this.timeout = setTimeout(() => {
-      this.setState({
-        className: "hidden"
-      })
-    }, 1900)
-  }
 
+  // this.timeout = setTimeout(() => {
+  //   this.setState({
+  //     className: "hidden"
+  //   })
+  // }, 1900)
 
-  componentWillUnmount() {
-    console.log('a card was unmounted');
-    clearInterval(this.timeout)
-  }
+  //
+  // componentWillUnmount() {
+  //   console.log('a card was unmounted');
+  //   clearInterval(this.timeout)
+  // }
 
 
 
   render() {
     const { quote, author, color } = this.props
-    const { className } = this.state
-
 
     return (
       <section className="Card" style={{ background: color }}>
@@ -39,7 +35,7 @@ class Card extends Component {
           <p>{ author }</p>
         </div>
 
-        <aside className={ className }>Mounted</aside>
+        <aside className={ this.state.className }>Mounted</aside>
         <small onClick={this.handleClose}>X</small>
 
       </section>
@@ -47,7 +43,7 @@ class Card extends Component {
   }
 
 
-  // for the 'x' button, 
+  // for the 'x' button,
   handleClose = () => {
     this.props.removeCard(this.props.author)
   }

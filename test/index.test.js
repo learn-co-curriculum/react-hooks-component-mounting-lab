@@ -27,13 +27,8 @@ describe('<App />', () => {
     //expect this.state.cards to be an array equal to 1
     expect(appWrapper.state().cards.length).to.equal(1)
 
-    // checks for value of this.interval in App
-    expect(appWrapper.instance().interval).to.not.equal(undefined)
-
-
     appWrapper.unmount()
   });
-
 
   it('calls componentWillUnmount', () => {
     spy(App.prototype, 'componentWillUnmount');

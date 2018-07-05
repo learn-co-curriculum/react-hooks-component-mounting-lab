@@ -76,7 +76,7 @@ const quotes = {
   "Vincent Van Gogh": "Great things are done by a series of small things brought together.",
   "William Shakespeare": "It is not in the stars to hold our destiny but in ourselves.",
   "William Blake": "What is now proved was once only imagined.",
-  "Walt Disney": "The way to get started is to quit talking and being doing.",
+  "Walt Disney": "The way to get started is to quit talking and be doing.",
   "W.C. Fields": "Start every day off with a smile and get it over with.",
   "Kurt Vonnegut": "Science is magic that works.",
   "Stephen Hawking": "Intelligence is the ability to adapt to change.",
