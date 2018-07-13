@@ -1,29 +1,22 @@
 import React, { Component } from 'react';
 
-import Card from './Card'
+import Timer from './Timer'
 import quotes from './quotes'
 
 class App extends Component {
 
   //no props being used here, so we can use the shorthand declaration of state
   state = {
-    cards: []
+    timerIDs: []
   }
 
 
   //Your code here:
-  //
-  componentDidMount() {
-    console.log(" ");
-    console.log("App component mounted");
-    this.addQuote()
-    this.interval = setInterval(this.addQuote, 5000)
-  }
 
-  componentWillUnmount() {
-    console.log("App component will unmount");
-    clearInterval(this.interval)
-  }
+
+
+
+
 
 
 
@@ -34,56 +27,36 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>Quote Wall</h1>
-        <button onClick={this.handleClick}>Add Quote</button>
+        <h1>MultiTimer</h1>
+        <button onClick={this.handleAddTimer}>Add New Timer</button>
 
-        <div className="CardGrid">
-          {this.renderCards()}
+        <div className="TimerGrid">
+          {this.renderTimers()}
         </div>
 
       </div>
     );
   }
 
-  // returns array of components written in JSX mapped from this.state.cards
-  renderCards = () => this.state.cards.map((card, id) => {
-    return <Card key={id} {...card} removeCard={this.removeCard}/>
+  // returns array of components written in JSX, mapped from this.state.timerIDs
+  renderTimers = () => this.state.timerIDs.map(id => {
+    return <Timer key={id} id={id} removeTimer={this.removeTimer} />
   })
 
-  // handles the event of clicking the 'Add Quote' button
-  handleClick = event => {
-    event.preventDefault()
-    this.addQuote()
+  // adds a random number for timer ID
+  handleAddTimer = () => {
+    this.setState(prevState => ({
+      timerIDs: [...prevState.timerIDs, Math.floor(Math.random()*1000)]
+    }))
   }
 
-  // when called, addCard updates state, adding a new object to the array of cards
-  addQuote = () => {
-    const allAuthors = Object.keys(quotes)
-    const author = allAuthors[Math.floor(Math.random() * allAuthors.length)]
-    const quote = quotes[author]
-    this.setState(({cards}) => {
-      return {
-        cards: [
-          ...cards,
-          {
-            quote,
-            author,
-            color: this.generateRandomColor()
-          }
-        ]
-      }
-    })
+  // removeTimer updates state, removing any timer that matches the provided author
+  removeTimer = id => {
+    this.setState(prevState => ({
+      timerIDs: prevState.timerIDs.filter(timer_id => timer_id !== id)
+    }))
   }
 
-  // removeCard updates state, removing any card that matches the provided author
-  removeCard = author => this.setState(prevState => {
-    return {
-      cards: prevState.cards.filter(card => card.author !== author)
-    }
-  })
-
-  //creates a range of light yellow colors
-  generateRandomColor = () => '#'+Math.floor(Math.random()*(16777215-16777115)+16777115).toString(16)
 
 }
 

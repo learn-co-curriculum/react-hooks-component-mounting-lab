@@ -26,25 +26,35 @@ button {
   height: 100px;
 }
 
-.CardGrid {
+.TimerGrid {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
+  justify-content: center;
 }
 
-.Card {
+.Timer {
   position: relative;
+  display: flex;
+  flex-flow: column nowrap;
   margin: 5px;
   padding: 20px;
   min-width: 200px;
-  width: auto;
-  height: 140px;
+  width: 240px;
+  height: 150px;
   border: 1px solid rgba(0, 0, 0, 0.8);
   font-size: 20px;
   box-shadow: 4px 6px rgba(200,200,200,0.8);
+  text-transform: capitalize;
 }
 
+figure {
+  height: 40%;
+}
+img {
+  height: 100%;
+
+}
 .cardContent {
   width: 100%;
   height: 100%;
@@ -57,15 +67,16 @@ q {
   font-size: 120%;
 }
 
-.Card aside {
+.Timer aside {
   position: absolute;
   left: 0;
-  top: 70%;
+  bottom: 0%;
   width: 100%;
+  background-color: white;
   text-align: center;
 }
 
-.Card small {
+.Timer small {
   position: absolute;
   top: 3px;
   right: 5px;
@@ -77,6 +88,7 @@ q {
   font-size: 200%;
   animation-name: animateMount;
   animation-duration: 2s;
+  animation-fill-mode: forwards;
 }
 
 .hidden {

@@ -8,7 +8,7 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 import App from '../src/App';
-import Card from '../src/Card';
+import Timer from '../src/Timer';
 
 describe('<App />', () => {
   var appWrapper
@@ -21,24 +21,15 @@ describe('<App />', () => {
     //component mounted correctly
     expect(App.prototype.componentDidMount.calledOnce, "componentDidMount was not called").to.equal(true);
 
-    //expect there to be one child element of div.CardGrid within App
-    expect(appWrapper.children('.CardGrid').length).to.equal(1)
+    //expect there to be one child element of div.TimerGrid within App
+    expect(appWrapper.children('.TimerGrid').length).to.equal(1)
 
-    //expect this.state.cards to be an array equal to 1
-    expect(appWrapper.state().cards.length).to.equal(1)
+    //expect this.state.timers to be an array equal to 1
+    expect(appWrapper.state().timerIDs.length).to.equal(1)
 
     appWrapper.unmount()
   });
 
-  it('calls componentWillUnmount', () => {
-    spy(App.prototype, 'componentWillUnmount');
-
-    appWrapper = shallow(<App />);
-
-    appWrapper.unmount()
-
-    expect(App.prototype.componentWillUnmount.calledOnce).to.equal(true);
-  })
 
 });
 
@@ -46,26 +37,26 @@ describe('<App />', () => {
 
 
 
-describe('<Card />', () => {
-  var cardWrapper
+describe('<Timer />', () => {
+  var timerWrapper
 
   it('calls componentDidMount', () => {
-    spy(Card.prototype, 'componentDidMount');
+    spy(Timer.prototype, 'componentDidMount');
 
-    cardWrapper = shallow(<Card />);
+    timerWrapper = shallow(<Timer />);
 
     //component mounted correctly
-    expect(Card.prototype.componentDidMount.calledOnce, "componentDidMount was not called").to.equal(true);
-    cardWrapper.unmount()
+    expect(Timer.prototype.componentDidMount.calledOnce, "componentDidMount was not called").to.equal(true);
+    timerWrapper.unmount()
   });
 
 
   it('calls componentWillUnmount', () => {
-    spy(Card.prototype, 'componentWillUnmount');
-    cardWrapper = shallow(<Card />);
+    spy(Timer.prototype, 'componentWillUnmount');
+    timerWrapper = shallow(<Timer />);
+    timerWrapper.unmount()
+    expect(Timer.prototype.componentWillUnmount.calledOnce).to.equal(true);
 
-    expect(App.prototype.componentWillUnmount.calledOnce).to.equal(true);
-    cardWrapper.unmount()
   })
 
 });
