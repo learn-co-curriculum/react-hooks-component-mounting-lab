@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import Timer from './Timer'
-import quotes from './quotes'
 
 class App extends Component {
 
