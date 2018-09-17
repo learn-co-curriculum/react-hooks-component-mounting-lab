@@ -2,11 +2,11 @@
 
 ## Objectives
 
-1. Describe what happens in the mounting phase of a React component's lifecycle
-2. Describe what happens in the unmounting phase of a React component's
-   lifecycle
-3. Practice performing setup and teardown actions at the appropriate point in
-   the React component lifecycle.
+1.  Describe what happens in the mounting phase of a React component's lifecycle
+2.  Describe what happens in the unmounting phase of a React component's
+    lifecycle
+3.  Practice performing setup and teardown actions at the appropriate point in
+    the React component lifecycle.
 
 ## Overview
 
@@ -37,7 +37,7 @@ invoked before any other child components are even constructed.
 You can always use the `constructor`, which fires first, to set up your initial
 state, so while it is possible to set state from `componentDidMount`, it isn't a
 common pattern. Using `componentDidMount` is instead reserved for taking initial
-actions within an app.  Actions might include getting remote API data, setting
+actions within an app. Actions might include getting remote API data, setting
 cursor focus, or creating an interval or timeout.
 
 The App component is keeping track of timers using an array of random ID
@@ -46,23 +46,30 @@ numbers. This allows for easy removal and addition of Timer components.
 In App, write a `componentDidMount` method that invokes the existing
 `handleAddTimer` class method.
 
+**Note:** When writing lifecycle methods, avoid using arrow functions - while
+they may work in browser, we want these methods to exist on the prototype chain
+of whatever JavaScript class we've created. Lifecycle methods written using
+arrow functions will not exist on the prototype chain and will not pass the
+tests in this lab.
+
 If you've got it working and have the app served up on a browser tab, you'll see
-that, upon refresh, a timer will be present. The timer is still not working, but that's
-okay for now.e
+that, upon refresh, a timer will be present. The timer is still not working, but
+that's okay for now.e
 
 #### Timer
 
 ###### `componentDidMount`
 
 The `componentDidMount` method is often a good place to include
-[setInterval][setInterval] or setTimeout functions, allowing you to delay
+[setInterval][setinterval] or setTimeout functions, allowing you to delay
 something from happening on a component or cause some repeating change. Perfect
 for our timer app.
 
 In the Timer component, there is already a method, `clockTick`, that handles
-updating the state. The state value, `time`, is then included in the render. We just need to set up an interval to call `clockTick`.
+updating the state. The state value, `time`, is then included in the render. We
+just need to set up an interval to call `clockTick`.
 
-To create a [setInterval][setInterval], the best practice is to assign it to a
+To create a [setInterval][setinterval], the best practice is to assign it to a
 variable within the scope of our class:
 
 ```js
@@ -86,7 +93,7 @@ To clear an interval, we use the built in `clearInterval` method, passing in the
 local variable:
 
 ```js
-clearInterval(this.interval)
+clearInterval(this.interval);
 ```
 
 Write a `componentWillUnmount` method in Timer that cleans up the interval you've
@@ -113,4 +120,4 @@ such as intervals and can also be used to halt ongoing activities involved in
 
 <p class='util--hide'>View <a href='https://learn.co/lessons/react-component-mounting-lab'>Component Mounting Lab</a> on Learn.co and start learning to code for free.</p>
 
-[setInterval]: https://www.w3schools.com/jsref/met_win_setinterval.asp
+[setinterval]: https://www.w3schools.com/jsref/met_win_setinterval.asp
