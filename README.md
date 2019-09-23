@@ -54,7 +54,7 @@ tests in this lab.
 
 If you've got it working and have the app served up on a browser tab, you'll see
 that, upon refresh, a timer will be present. The timer is still not working, but
-that's okay for now.e
+that's okay for now.
 
 #### Timer
 
