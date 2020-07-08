@@ -118,6 +118,4 @@ such as intervals and can also be used to halt ongoing activities involved in
 
 - [React: Component Specs and Lifecycle](https://reactjs.org/docs/react-component.html)
 
-<p class='util--hide'>View <a href='https://learn.co/lessons/react-component-mounting-lab'>Component Mounting Lab</a> on Learn.co and start learning to code for free.</p>
-
 [setinterval]: https://www.w3schools.com/jsref/met_win_setinterval.asp
