@@ -17,7 +17,7 @@ track of its own time using state.
 
 Go on and run the app with `npm start`. The app is already partially working,
 but there are some changes we need to make. By clicking 'Add Timer', timers will
-get added to the page, but stay a `0`.
+get added to the page, but stay at `0`.
 
 In order to get our timers working properly, we will need to use component
 lifecycle methods to handle initiating and clearing an interval.
@@ -104,12 +104,11 @@ and `componentWillUnmount` to both App and Timer.
 
 ## Conclusion
 
-To quickly recap, the `componentDidMount` method is useful to initiating one
-time or ongoing actions within the logic of a component. It can also be used for
+To quickly recap, the `componentDidMount` method is useful for initiating one-time or ongoing actions within the logic of a component. It can also be used for
 DOM manipulation, fetching data or opening a web socket connection.
 
-The `componentWillUnmount` is most often used for cleaning up ongoing processes,
-such as intervals and can also be used to halt ongoing activities involved in
+The `componentWillUnmount` method is most often used for cleaning up ongoing processes
+such as intervals, and it can also be used to halt ongoing activities involved in
 3rd party libraries.
 
 [refs]: https://reactjs.org/docs/refs-and-the-dom.html
