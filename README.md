@@ -1,4 +1,4 @@
-# React: Component Mounting and Unmounting
+# Component Mounting and Unmounting
 
 ## Learning Goals
 
