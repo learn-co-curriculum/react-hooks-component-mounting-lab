@@ -1,14 +1,11 @@
 # React: Component Mounting and Unmounting
 
-## Objectives
+## Learning Goals
 
-1.  Describe what happens in the mounting phase of a React component's lifecycle
-2.  Describe what happens in the unmounting phase of a React component's
-    lifecycle
-3.  Practice performing setup and teardown actions at the appropriate point in
-    the React component lifecycle.
+- Use the `componentDidMount` lifecycle method
+- Use the `componentWillUnmount` lifecycle method
 
-## Overview
+## Introduction
 
 In this lab, we will be be implementing React lifecycle methods for a simple
 app: MultiTimer. MultiTimer allows users to start multiple one-second timers.
@@ -27,9 +24,7 @@ lifecycle methods to handle initiating and clearing an interval.
 To pass the tests in this lab, you will need to write `componentDidMount` and
 `componentWillUnmount` methods where necessary in `App.js` and `Timer.js`.
 
-#### App
-
-###### `componentDidMount`
+### App - componentDidMount
 
 Since App is the top level component, its `componentDidMount` method will be
 invoked before any other child components are even constructed.
@@ -56,12 +51,10 @@ If you've got it working and have the app served up on a browser tab, you'll see
 that, upon refresh, a timer will be present. The timer is still not working, but
 that's okay for now.
 
-#### Timer
-
-###### `componentDidMount`
+### Timer - componentDidMount
 
 The `componentDidMount` method is often a good place to include
-[setInterval][setinterval] or setTimeout functions, allowing you to delay
+[setInterval][set-interval] or setTimeout functions, allowing you to delay
 something from happening on a component or cause some repeating change. Perfect
 for our timer app.
 
@@ -69,7 +62,7 @@ In the Timer component, there is already a method, `clockTick`, that handles
 updating the state. The state value, `time`, is then included in the render. We
 just need to set up an interval to call `clockTick`.
 
-To create a [setInterval][setinterval], the best practice is to assign it to a
+To create a [setInterval][set-interval], the best practice is to assign it to a
 variable within the scope of our class:
 
 ```js
@@ -82,7 +75,7 @@ the callback function and set it to `1000` to update every second.
 Once this is working, in our application, when a new timer is added, we should
 see the displayed number increase every second!
 
-###### `componentWillUnmount`
+### Timer - componentWillUnmount
 
 It is important to make sure that we clean up after ourselves when it comes to
 intervals. Not cleaning up can cause memory leaks (meaning that system memory is
@@ -104,12 +97,13 @@ and `componentWillUnmount` to both App and Timer.
 
 ## Conclusion
 
-To quickly recap, the `componentDidMount` method is useful for initiating one-time or ongoing actions within the logic of a component. It can also be used for
-DOM manipulation, fetching data or opening a web socket connection.
+To quickly recap, the `componentDidMount` method is useful for initiating
+one-time or ongoing actions within the logic of a component. It can also be used
+for DOM manipulation, fetching data or opening a web socket connection.
 
-The `componentWillUnmount` method is most often used for cleaning up ongoing processes
-such as intervals, and it can also be used to halt ongoing activities involved in
-3rd party libraries.
+The `componentWillUnmount` method is most often used for cleaning up ongoing
+processes such as intervals, and it can also be used to halt ongoing activities
+involved in 3rd party libraries.
 
 [refs]: https://reactjs.org/docs/refs-and-the-dom.html
 
@@ -117,4 +111,4 @@ such as intervals, and it can also be used to halt ongoing activities involved i
 
 - [React: Component Specs and Lifecycle](https://reactjs.org/docs/react-component.html)
 
-[setinterval]: https://www.w3schools.com/jsref/met_win_setinterval.asp
+[set-interval]: https://www.w3schools.com/jsref/met_win_setinterval.asp
