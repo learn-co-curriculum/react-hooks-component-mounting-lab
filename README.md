@@ -92,7 +92,7 @@ clearInterval(this.interval);
 Write a `componentWillUnmount` method in Timer that cleans up the interval you've
 created.
 
-Run `learn` to confirm you've passed the tests for adding `componentDidMount`
+Run `learn test` to confirm you've passed the tests for adding `componentDidMount`
 and `componentWillUnmount` to both App and Timer.
 
 ## Conclusion
