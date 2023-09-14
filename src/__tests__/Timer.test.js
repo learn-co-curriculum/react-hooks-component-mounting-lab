@@ -12,7 +12,7 @@ test('it calls componentDidMount', () => {
   let timerWrapper = shallow(<Timer />);
 
   //component mounted correctly
-  expect(Timer.prototype.componentDidMount.calledOnce, "componentDidMount was not called").toBe(true);
+  expect(Timer.prototype.componentDidMount.calledOnce).toBe(true);
   timerWrapper.unmount()
 });
 
