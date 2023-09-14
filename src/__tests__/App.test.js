@@ -11,7 +11,7 @@ test("<App /> calls componentDidMount and adds a Timer", () => {
   spy(App.prototype, 'componentDidMount');
   let appWrapper = shallow(<App />);
 
-  expect(App.prototype.componentDidMount.calledOnce, "componentDidMount was not called").toBe(true);
+  expect(App.prototype.componentDidMount.calledOnce).toBe(true);
 
   expect(appWrapper.children('.TimerGrid').length).toBe(1)
 

@@ -4,13 +4,26 @@
   "private": true,
   "babel": {
     "presets": [
-      "airbnb",
-      "env",
-      "stage-0",
-      "react"
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "edge": "17",
+            "firefox": "60",
+            "chrome": "67",
+            "safari": "11.1"
+          },
+          "useBuiltIns": "usage",
+          "corejs": "3.6.5"
+        }
+      ],
+      [
+        "@babel/preset-react"
+      ]
     ]
   },
   "dependencies": {
+    "core-js": "^3.32.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "^5.0.1",
@@ -23,11 +36,10 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-airbnb": "^2.5.1",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
+    "@babel/cli": "^7.22.15",
+    "@babel/core": "^7.22.17",
+    "@babel/preset-env": "^7.22.15",
+    "@babel/preset-react": "^7.22.15",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "sinon": "^6.3.3"
